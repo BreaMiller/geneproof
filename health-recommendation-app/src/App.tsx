@@ -5,6 +5,9 @@ import { Toaster } from 'sonner'
 import AuthPage from './pages/AuthPage'
 import ProfilePage from './pages/ProfilePage'
 import DashboardPage from './pages/DashboardPage'
+
+// Get the base URL for GitHub Pages in production
+const baseUrl = import.meta.env.BASE_URL
 import DNAMatchPage from './pages/DNAMatchPage'
 import FoodProtocolPage from './pages/FoodProtocolPage'
 import HerbsPage from './pages/HerbsPage'
@@ -17,11 +20,11 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Router>
+        <Router basename={baseUrl}>
           <Routes>
-            <Route path="/auth" element={<AuthPage />} />
+            <Route path="auth" element={<AuthPage />} />
             <Route
-              path="/"
+              path=""
               element={
                 <ProtectedRoute>
                   <DashboardPage />
