@@ -4,10 +4,9 @@ import { defineConfig } from "vite"
 import sourceIdentifierPlugin from 'vite-plugin-source-identifier'
 
 const isProd = process.env.BUILD_MODE === 'prod'
-const ghPagesBase = process.env.GH_PAGES === 'true' ? '/geneproof/' : '/'
 
 export default defineConfig({
-  base: ghPagesBase,
+  base: '/geneproof/',
   plugins: [
     react(), 
     sourceIdentifierPlugin({
